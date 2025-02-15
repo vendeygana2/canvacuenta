@@ -3,120 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canva Premium</title>
-    <link rel="icon" href="https://1000marcas.net/wp-content/uploads/2020/01/Canva-logo.png" type="image/png">
+    <title>Formulario de Pantalla Completa</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        body, html {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-        }
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+            background-color: #f0f0f0;
         }
-        .venta {
-            background-color: white;
-            border: 2px solid #00c4cc;
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            max-width: 500px; /* Ajuste del tamaño de la venta */
-            text-align: center;
-            position: relative;
-        }
-        .venta p, .venta ul {
-            margin: 10px 0; /* Ajuste de margen para pegar más el texto al logo */
-            color: black; /* Texto en color negro */
-            font-size: 16px;
-            text-align: left; /* Alinear texto a la izquierda */
-        }
-        .header-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: black; /* Texto en color negro */
-            margin-top: 10px; /* Ajuste de margen superior */
-        }
-        .header-image {
-            width: 60%; /* Ajuste del tamaño de la imagen */
-            height: auto;
-            margin-bottom: 10px; /* Ajuste de margen inferior */
-        }
-        .botones {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .boton {
-            background-color: #00c4cc; /* Color del botón de compras */
-            color: white;
-            padding: 10px 20px;
+        iframe {
+            width: 100%;
+            height: 100%;
             border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-transform: uppercase;
         }
-        .boton-volver {
-            background-color: #ed7318; /* Color naranja */
-        }
-        .boton:hover {
-            background-color: #009ea1;
-        }
-        .boton-volver:hover {
-            background-color: #d66616; /* Color naranja oscuro */
-        }
-        .close-button {
+        .close-btn {
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: red;
-            color: white;
+            background-color: #ff0000;
+            color: #ffffff;
             border: none;
-            border-radius: 50%;
-            width: 25px;
-            height: 25px;
+            padding: 10px;
             cursor: pointer;
-            text-align: center;
-            line-height: 25px;
-            font-weight: bold;
         }
     </style>
 </head>
-<body onload="openModal()">
-    <div class="overlay" id="overlay">
-        <div class="venta">
-            <button class="close-button" onclick="window.location.href='https://www.vendeygana.net/user/'">X</button>
-            <img src="https://1000marcas.net/wp-content/uploads/2020/01/Canva-logo.png" alt="Canva Premium" class="header-image">
-            <div class="header-title">🎨 Descubre Canva Premium: Lleva tu diseño al siguiente nivel.</div>
-            <p>🌟 <strong>Ventajas de Canva Premium:</strong></p>
-            <ul>
-                <li>• Recursos Ilimitados: Acceso a millones de plantillas, fotos y gráficos.</li>
-                <li>• Herramientas Avanzadas: Funcionalidades premium para crear diseños impresionantes.</li>
-                <li>• Descargas en Alta Calidad: Exporta tus diseños en resolución superior.</li>
-                <li>• Colaboración en Tiempo Real: Trabaja en equipo y comparte tus proyectos fácilmente.</li>
-            </ul>
-            <p>📲 Compra tu cuenta hoy con Vende y Gana y transforma tu creatividad. La cuenta se crea con el correo del cliente. 🖌️✨</p>
-            <div class="botones">
-                <button class="boton" onclick="window.location.href='https://vendeygana2.github.io/COMPRACANVA/'">Comprar</button>
-                <button class="boton boton-volver" onclick="window.location.href='https://www.vendeygana.net/user/'">Volver a Vende y Gana</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function openModal() {
-            document.getElementById('overlay').style.display = 'flex';
-        }
-    </script>
+<body>
+    <button class="close-btn" onclick="window.location.href='https://www.vendeygana.net/user/'">X</button>
+    <iframe src="https://fluidforms.co/embed/form?id=679b9b4418ef1df993bf0352"></iframe>
 </body>
 </html>
