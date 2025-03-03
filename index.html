@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ventana Emergente</title>
     <style>
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
         html, body {
             margin: 0;
             padding: 0;
@@ -34,6 +39,12 @@
             color: #ffffff;
             font-size: 18px;
             margin: 10px 0;
+        }
+        .blink-text {
+            color: #ffffff;
+            font-size: 18px;
+            margin: 10px 0;
+            animation: blink 2s infinite;
         }
         .download-button {
             display: inline-block;
@@ -68,6 +79,7 @@
         <p>
             en una alianza estratégica nos unimos para darte más con Panaxtreaming donde podrás hacer tus recargas con tu usuario Vende y Gana y además comprar cuentas y mucho más de forma más fácil y sencilla. ¡Te invitamos a descargar nuestra aplicación!
         </p>
+        <p class="blink-text">EL PRODUCTO QUE BUSCAS AHORA ESTÁ AQUÍ</p>
         <a href="https://app.jotform.com/250464329670661/page/33" class="download-button">Descarga de Aplicación</a>
         <img src="https://dhgf5mcbrms62.cloudfront.net/110979006/header-fcHJMd/IVsTzWZ-600x600.webp" alt="Footer Logo" class="footer-logo">
     </div>
