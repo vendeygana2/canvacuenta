@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oferta Canva</title>
+    <title>Formulario Canva Pro</title>
     <style>
         body, html {
             margin: 0;
@@ -13,12 +13,9 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Estilo para el formulario en el fondo */
         .form-container {
-            position: relative;
             width: 100%;
             height: 100%;
-            z-index: 1; /* Más bajo que el modal */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -28,121 +25,15 @@
             width: 100%;
             height: 100%;
             border: none;
-            max-width: 100%; /* Asegura que no exceda el ancho del dispositivo */
-            max-height: 100%; /* Asegura que no exceda la altura del dispositivo */
-        }
-
-        /* Estilos para el modal */
-        .modal {
-            display: flex; /* Visible por defecto */
-            justify-content: center;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro transparente */
-            z-index: 2; /* Capa superior al formulario */
-            color: white;
-            text-align: center;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: left;
-            color: black;
-            max-width: 600px;
-            width: 90%;
-            position: relative;
-            animation: glow 2s infinite; /* Activar la animación */
-        }
-
-        /* Animación del marco de luz LED */
-        @keyframes glow {
-            0% {
-                box-shadow: 0 0 10px 5px #007BFF;
-            }
-            50% {
-                box-shadow: 0 0 20px 10px #00FF00;
-            }
-            100% {
-                box-shadow: 0 0 10px 5px #FF0000;
-            }
-        }
-
-        .modal-content img {
-            width: 100px;
-            display: block;
-            margin: 0 auto 20px;
-        }
-
-        .modal-content .promo-text {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .modal-content .advantages {
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        .modal-content button {
-            display: block;
-            margin: 20px auto 0;
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-
-        .modal-content button:hover {
-            background-color: #0056b3;
+            max-width: 100%;
+            max-height: 100%;
         }
     </style>
 </head>
 <body>
-    <!-- Formulario incrustado en el fondo -->
+    <!-- Formulario incrustado -->
     <div class="form-container">
-        <iframe src="https://fluidforms.co/embed/form?id=679b9b4418ef1df993bf0352"></iframe>
+        <iframe src="https://online.forms.app/respuestasdereportesdefa/canvapro"></iframe>
     </div>
-
-    <!-- Modal de oferta -->
-    <div class="modal" id="promoModal">
-        <div class="modal-content">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgIAbDSwadQjYMuuzjIY97K5CM9kDdHj6X9w&s" alt="Logo Canva">
-            <div class="promo-text">
-                <strong>¡SUPER OFERTA DE CANVA!</strong><br>
-                BS 77 - Cuenta Pro con todas las funciones personalizadas
-            </div>
-            <div class="advantages">
-                <ul>
-                    <li><strong>Almacenamiento en la nube:</strong> Canva Pro permite almacenar hasta 100 GB, mientras que la versión gratuita solo 5 GB.</li>
-                    <li><strong>Plantillas Pro:</strong> Canva Pro ofrece plantillas prediseñadas por profesionales para redes sociales, logos y sitios web.</li>
-                    <li><strong>Kit de Marca:</strong> Permite aplicar los recursos de la marca a cualquier diseño.</li>
-                    <li><strong>Borrador Mágico:</strong> Quita los objetos que no se quieran tener en las imágenes.</li>
-                    <li><strong>Dibujo:</strong> Permite hacer bocetos de ideas con dibujo a mano alzada, subrayado y anotaciones.</li>
-                    <li><strong>Forma Perfecta:</strong> Utiliza tecnología de IA para dar los toques finales a los bocetos.</li>
-                    <li><strong>Subir logos y fuentes:</strong> Permite subir los propios logos y fuentes para diseñar siguiendo la identidad de la marca.</li>
-                    <li><strong>Crear paletas de colores personalizadas:</strong> Permite crear paletas de colores personalizadas.</li>
-                </ul>
-            </div>
-            <button onclick="closeModal()">Continuar</button>
-        </div>
-    </div>
-
-    <script>
-        function closeModal() {
-            document.getElementById('promoModal').style.display = 'none'; // Oculta el modal
-        }
-    </script>
 </body>
 </html>
