@@ -24,6 +24,30 @@
             background-repeat: no-repeat;
             padding: 20px;
             background-color: #121212;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
         }
 
         h1 {
@@ -98,6 +122,8 @@
     </style>
 </head>
 <body>
+    <a href="https://www.vendeygana.net/user/" class="close-btn">×</a>
+    
     <h1>Elige la aplicación que más te guste</h1>
     
     <div class="container">
