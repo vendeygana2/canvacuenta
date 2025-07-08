@@ -119,6 +119,60 @@
                 gap: 15px;
             }
         }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            height: 90vh;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
+        }
+
+        .modal-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -128,12 +182,12 @@
     
     <div class="container">
         <!-- Capcut -->
-        <button class="btn" onclick="window.location.href='https://vendeygana.forms.app/cuentacatcup'">
+        <button class="btn" id="capcutBtn">
             <img src="https://intef.es/wp-content/uploads/2023/08/Ilustraci%C3%B3n-1-Logo-de-la-aplicaci%C3%B3n-Capcut_WP.png" alt="Capcut">
         </button>
         
         <!-- Canva -->
-        <button class="btn" onclick="window.location.href='https://vendeygana.forms.app/canvapro'">
+        <button class="btn" id="canvaBtn">
             <img src="https://www.renatoyacolca.com/wp-content/uploads/2022/06/canva-pro.png" alt="Canva Pro">
         </button>
         
@@ -143,9 +197,98 @@
         </button>
         
         <!-- ChatGPT -->
-        <button class="btn" onclick="window.location.href='https://vendeygana.forms.app/chatgpt'">
+        <button class="btn" id="chatgptBtn">
             <img src="https://images.seeklogo.com/logo-png/51/2/openai-chatgpt-4-0-logo-png_seeklogo-510261.png" alt="ChatGPT">
         </button>
     </div>
+
+    <!-- Modal for Capcut -->
+    <div id="capcutModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="closeCapcutModal">×</span>
+            <iframe src="https://96vxnn73.forms.app/cuentacatcup" class="modal-iframe" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <!-- Modal for Canva -->
+    <div id="canvaModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="closeCanvaModal">×</span>
+            <iframe src="https://96vxnn73.forms.app/canvapro" class="modal-iframe" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <!-- Modal for ChatGPT -->
+    <div id="chatgptModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="closeChatgptModal">×</span>
+            <iframe src="https://96vxnn73.forms.app/chatgpt" class="modal-iframe" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Get the modals and buttons
+        const capcutModal = document.getElementById("capcutModal");
+        const capcutBtn = document.getElementById("capcutBtn");
+        const closeCapcutModal = document.getElementById("closeCapcutModal");
+
+        const canvaModal = document.getElementById("canvaModal");
+        const canvaBtn = document.getElementById("canvaBtn");
+        const closeCanvaModal = document.getElementById("closeCanvaModal");
+
+        const chatgptModal = document.getElementById("chatgptModal");
+        const chatgptBtn = document.getElementById("chatgptBtn");
+        const closeChatgptModal = document.getElementById("closeChatgptModal");
+
+        // When the user clicks the Capcut button, open the modal 
+        capcutBtn.onclick = function() {
+            capcutModal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+
+        // When the user clicks the Canva button, open the modal 
+        canvaBtn.onclick = function() {
+            canvaModal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+
+        // When the user clicks the ChatGPT button, open the modal 
+        chatgptBtn.onclick = function() {
+            chatgptModal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+
+        // When the user clicks on (x), close the modals
+        closeCapcutModal.onclick = function() {
+            capcutModal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        closeCanvaModal.onclick = function() {
+            canvaModal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        closeChatgptModal.onclick = function() {
+            chatgptModal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == capcutModal) {
+                capcutModal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+            if (event.target == canvaModal) {
+                canvaModal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+            if (event.target == chatgptModal) {
+                chatgptModal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+    </script>
 </body>
 </html>
