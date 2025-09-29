@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Botón de Aplicaciones de Música</title>
+    <title>Botón de Aplicaciones de Diseño</title>
     <style>
         * {
             margin: 0;
@@ -116,29 +116,29 @@
             margin-left: 2px;
         }
         
-        /* Efectos de notas musicales */
-        .music-note {
+        /* Efectos de elementos de diseño */
+        .design-element {
             position: absolute;
-            font-size: 24px;
+            font-size: 20px;
             opacity: 0;
             z-index: 0;
             pointer-events: none;
         }
         
-        .note-1 { color: #ff6b6b; }
-        .note-2 { color: #4ecdc4; }
-        .note-3 { color: #ffd166; }
-        .note-4 { color: #06d6a0; }
-        .note-5 { color: #118ab2; }
-        .note-6 { color: #ef476f; }
+        .element-1 { color: #ff6b6b; }
+        .element-2 { color: #4ecdc4; }
+        .element-3 { color: #ffd166; }
+        .element-4 { color: #06d6a0; }
+        .element-5 { color: #118ab2; }
+        .element-6 { color: #ef476f; }
         
-        @keyframes float-note {
+        @keyframes float-element {
             0% {
-                transform: translateY(0) rotate(0deg);
+                transform: translateY(0) rotate(0deg) scale(1);
                 opacity: 1;
             }
             100% {
-                transform: translateY(-100px) rotate(360deg);
+                transform: translateY(-100px) rotate(360deg) scale(1.5);
                 opacity: 0;
             }
         }
@@ -187,13 +187,13 @@
 </head>
 <body>
     <div class="container">
-        <h1>Aplicaciones de Música Premium</h1>
-        <p>Haz clic en el botón para acceder a nuestras suscripciones premium para tus aplicaciones de música favoritas</p>
+        <h1>Aplicaciones de Diseño Premium</h1>
+        <p>Haz clic en el botón para acceder a nuestras suscripciones premium para tus aplicaciones de diseño favoritas</p>
         
         <div class="button-container">
-            <a href="https://cuentasvendeygana.company.site/products/aplicaciones-musica" target="_blank" class="custom-button" id="music-button">
+            <a href="https://cuentasvendeygana.company.site/products/aplicaciones-diseno" target="_blank" class="custom-button" id="design-button">
                 <img src="https://i.pinimg.com/736x/23/3b/bc/233bbcbc4b8048c5bdb10f7d16bc99bc.jpg" 
-                     alt="Aplicaciones de Música Premium" 
+                     alt="Aplicaciones de Diseño Premium" 
                      class="button-image">
             </a>
         </div>
@@ -207,20 +207,20 @@
     </div>
 
     <!-- Audio para el efecto de sonido -->
-    <audio id="music-sound" preload="auto">
+    <audio id="design-sound" preload="auto">
         <source src="https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3" type="audio/mpeg">
     </audio>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const text = "Encontrarás suscripciones premium para las mejores plataformas de música: YouTube Premium, Spotify, Deezer, Apple Music, Amazon Music, Tidal y muchas más. Disfruta de música sin anuncios, descargas offline y todas las funciones premium al mejor precio del mercado.";
+            const text = "Encontrarás suscripciones premium para las mejores aplicaciones de diseño: CapCut Pro, Canva Pro, Gemini Pro, ChatGPT Plus, Adobe Creative Cloud, Figma Pro y muchas más. Accede a todas las funciones premium, plantillas exclusivas y herramientas avanzadas de diseño al mejor precio.";
             const container = document.getElementById('typewriter-container');
-            const musicButton = document.getElementById('music-button');
-            const musicSound = document.getElementById('music-sound');
+            const designButton = document.getElementById('design-button');
+            const designSound = document.getElementById('design-sound');
             const speed = 50; // Velocidad de escritura en milisegundos
             
-            // Símbolos de notas musicales
-            const musicNotes = ['♪', '♫', '♩', '♬', '🎵', '🎶'];
+            // Símbolos de diseño y creatividad
+            const designElements = ['✏️', '🎨', '🖌️', '📐', '💡', '✨', '🖼️', '🎭'];
             
             function typeWriter() {
                 container.innerHTML = ''; // Limpiar contenedor
@@ -257,46 +257,46 @@
                 type();
             }
             
-            // Función para crear notas musicales
-            function createMusicNotes() {
-                for (let i = 0; i < 12; i++) {
+            // Función para crear elementos de diseño
+            function createDesignElements() {
+                for (let i = 0; i < 15; i++) {
                     setTimeout(() => {
-                        const note = document.createElement('div');
-                        note.className = `music-note note-${(i % 6) + 1}`;
-                        note.textContent = musicNotes[i % musicNotes.length];
+                        const element = document.createElement('div');
+                        element.className = `design-element element-${(i % 6) + 1}`;
+                        element.textContent = designElements[i % designElements.length];
                         
                         // Posición aleatoria alrededor del botón
-                        const buttonRect = musicButton.getBoundingClientRect();
+                        const buttonRect = designButton.getBoundingClientRect();
                         const randomX = Math.random() * buttonRect.width;
                         
-                        note.style.left = `${buttonRect.left + randomX}px`;
-                        note.style.top = `${buttonRect.bottom}px`;
+                        element.style.left = `${buttonRect.left + randomX}px`;
+                        element.style.top = `${buttonRect.bottom}px`;
                         
-                        document.body.appendChild(note);
+                        document.body.appendChild(element);
                         
-                        // Animación de la nota
-                        note.style.animation = `float-note 1.5s ease-out forwards`;
+                        // Animación del elemento
+                        element.style.animation = `float-element 2s ease-out forwards`;
                         
-                        // Eliminar la nota después de la animación
+                        // Eliminar el elemento después de la animación
                         setTimeout(() => {
-                            if (note.parentNode) {
-                                note.parentNode.removeChild(note);
+                            if (element.parentNode) {
+                                element.parentNode.removeChild(element);
                             }
-                        }, 1500);
-                    }, i * 100);
+                        }, 2000);
+                    }, i * 80);
                 }
             }
             
-            // Evento para el botón de música
-            musicButton.addEventListener('click', function(e) {
+            // Evento para el botón de diseño
+            designButton.addEventListener('click', function(e) {
                 // Reproducir sonido
-                musicSound.currentTime = 0;
-                musicSound.play().catch(error => {
+                designSound.currentTime = 0;
+                designSound.play().catch(error => {
                     console.log('La reproducción automática de audio fue prevenida:', error);
                 });
                 
-                // Crear notas musicales
-                createMusicNotes();
+                // Crear elementos de diseño
+                createDesignElements();
                 
                 // Efecto de pulsación
                 this.style.transform = 'scale(0.95)';
@@ -305,9 +305,9 @@
                 }, 150);
             });
             
-            // Efecto de notas al pasar el mouse
-            musicButton.addEventListener('mouseenter', function() {
-                createMusicNotes();
+            // Efecto de elementos al pasar el mouse
+            designButton.addEventListener('mouseenter', function() {
+                createDesignElements();
             });
             
             // Iniciar efecto máquina de escribir
