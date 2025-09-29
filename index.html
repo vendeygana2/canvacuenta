@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Botón con Imagen</title>
+    <title>Botón de Aplicaciones de Música</title>
     <style>
         * {
             margin: 0;
@@ -12,155 +12,307 @@
         }
         
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: #ed7318;
+            background-color: #ed7318;
+            padding: 20px;
             overflow: hidden;
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        p {
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
         
         .button-container {
-            position: relative;
             display: flex;
             justify-content: center;
-            align-items: center;
+            margin: 30px 0;
+            position: relative;
         }
         
-        .redirect-button {
-            border: none;
-            background: none;
+        .custom-button {
+            display: inline-block;
             cursor: pointer;
-            transition: all 0.3s ease;
+            border: none;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            padding: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            max-width: 100%;
             position: relative;
-            z-index: 10;
         }
         
-        .redirect-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+        .custom-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .custom-button:active {
+            transform: translateY(0);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
         }
         
         .button-image {
-            width: 350px;
-            height: auto;
             display: block;
-            border-radius: 12px;
+            width: 100%;
+            height: auto;
+            max-width: 400px;
         }
         
-        .logos-container {
+        .info-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #ed7318;
+            padding: 15px;
+            margin-top: 30px;
+            border-radius: 0 8px 8px 0;
+            text-align: left;
+        }
+        
+        .info-box h3 {
+            color: #ed7318;
+            margin-bottom: 10px;
+        }
+        
+        .typewriter-container {
+            position: relative;
+            min-height: 80px;
+        }
+        
+        .typewriter-text {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            line-height: 1.6;
+        }
+        
+        .typewriter-cursor {
+            display: inline-block;
+            width: 2px;
+            background-color: #ed7318;
+            animation: blink 1s infinite;
+            margin-left: 2px;
+        }
+        
+        /* Efectos de notas musicales */
+        .music-note {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-size: 24px;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            z-index: 0;
             pointer-events: none;
         }
         
-        .button-container:hover .logos-container {
-            opacity: 1;
+        .note-1 { color: #ff6b6b; }
+        .note-2 { color: #4ecdc4; }
+        .note-3 { color: #ffd166; }
+        .note-4 { color: #06d6a0; }
+        .note-5 { color: #118ab2; }
+        .note-6 { color: #ef476f; }
+        
+        @keyframes float-note {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
         }
         
-        .logo {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            font-size: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: all 0.5s ease;
-            text-align: center;
-            padding: 5px;
+        @keyframes blink {
+            0%, 50% {
+                opacity: 1;
+            }
+            51%, 100% {
+                opacity: 0;
+            }
         }
         
-        .logo-1 {
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%) scale(0);
-            background: #00C4CC;
-            color: white;
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+            
+            .button-image {
+                max-width: 300px;
+            }
         }
         
-        .logo-2 {
-            top: 50%;
-            right: -30px;
-            transform: translateY(-50%) scale(0);
-            background: #00C4A7;
-            color: white;
-        }
-        
-        .logo-3 {
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%) scale(0);
-            background: #FF6B6B;
-            color: white;
-        }
-        
-        .logo-4 {
-            top: 50%;
-            left: -30px;
-            transform: translateY(-50%) scale(0);
-            background: #4ECDC4;
-            color: white;
-        }
-        
-        .button-container:hover .logo-1 {
-            transform: translateX(-50%) scale(1);
-            top: -80px;
-        }
-        
-        .button-container:hover .logo-2 {
-            transform: translateY(-50%) scale(1);
-            right: -80px;
-        }
-        
-        .button-container:hover .logo-3 {
-            transform: translateX(-50%) scale(1);
-            bottom: -80px;
-        }
-        
-        .button-container:hover .logo-4 {
-            transform: translateY(-50%) scale(1);
-            left: -80px;
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .button-image {
+                max-width: 250px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="button-container">
-        <button class="redirect-button" onclick="redirectToLink()">
-            <img src="https://i.pinimg.com/736x/23/3b/bc/233bbcbc4b8048c5bdb10f7d16bc99bc.jpg" 
-                 alt="Aplicaciones de Diseño" 
-                 class="button-image">
-        </button>
+    <div class="container">
+        <h1>Aplicaciones de Música Premium</h1>
+        <p>Haz clic en el botón para acceder a nuestras suscripciones premium para tus aplicaciones de música favoritas</p>
         
-        <div class="logos-container">
-            <div class="logo logo-1">CapCut</div>
-            <div class="logo logo-2">Canva</div>
-            <div class="logo logo-3">ChatGPT</div>
-            <div class="logo logo-4">Gemini Pro</div>
+        <div class="button-container">
+            <a href="https://cuentasvendeygana.company.site/products/aplicaciones-musica" target="_blank" class="custom-button" id="music-button">
+                <img src="https://i.pinimg.com/736x/23/3b/bc/233bbcbc4b8048c5bdb10f7d16bc99bc.jpg" 
+                     alt="Aplicaciones de Música Premium" 
+                     class="button-image">
+            </a>
+        </div>
+        
+        <div class="info-box">
+            <h3>¿Qué encontrarás?</h3>
+            <div class="typewriter-container" id="typewriter-container">
+                <!-- El texto se generará dinámicamente con JavaScript -->
+            </div>
         </div>
     </div>
 
+    <!-- Audio para el efecto de sonido -->
+    <audio id="music-sound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3" type="audio/mpeg">
+    </audio>
+
     <script>
-        function redirectToLink() {
-            window.location.href = "https://cuentasvendeygana.company.site/products/aplicaciones-diseno";
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const text = "Encontrarás suscripciones premium para las mejores plataformas de música: YouTube Premium, Spotify, Deezer, Apple Music, Amazon Music, Tidal y muchas más. Disfruta de música sin anuncios, descargas offline y todas las funciones premium al mejor precio del mercado.";
+            const container = document.getElementById('typewriter-container');
+            const musicButton = document.getElementById('music-button');
+            const musicSound = document.getElementById('music-sound');
+            const speed = 50; // Velocidad de escritura en milisegundos
+            
+            // Símbolos de notas musicales
+            const musicNotes = ['♪', '♫', '♩', '♬', '🎵', '🎶'];
+            
+            function typeWriter() {
+                container.innerHTML = ''; // Limpiar contenedor
+                let i = 0;
+                
+                function type() {
+                    if (i < text.length) {
+                        // Crear un span para el texto ya escrito
+                        const typedSpan = document.createElement('span');
+                        typedSpan.className = 'typewriter-text';
+                        typedSpan.textContent = text.substring(0, i + 1);
+                        
+                        // Crear cursor
+                        const cursorSpan = document.createElement('span');
+                        cursorSpan.className = 'typewriter-cursor';
+                        
+                        // Actualizar contenido
+                        container.innerHTML = '';
+                        container.appendChild(typedSpan);
+                        container.appendChild(cursorSpan);
+                        
+                        i++;
+                        setTimeout(type, speed);
+                    } else {
+                        // Cuando termine, mostrar solo el texto sin cursor
+                        const finalText = document.createElement('span');
+                        finalText.className = 'typewriter-text';
+                        finalText.textContent = text;
+                        container.innerHTML = '';
+                        container.appendChild(finalText);
+                    }
+                }
+                
+                type();
+            }
+            
+            // Función para crear notas musicales
+            function createMusicNotes() {
+                for (let i = 0; i < 12; i++) {
+                    setTimeout(() => {
+                        const note = document.createElement('div');
+                        note.className = `music-note note-${(i % 6) + 1}`;
+                        note.textContent = musicNotes[i % musicNotes.length];
+                        
+                        // Posición aleatoria alrededor del botón
+                        const buttonRect = musicButton.getBoundingClientRect();
+                        const randomX = Math.random() * buttonRect.width;
+                        
+                        note.style.left = `${buttonRect.left + randomX}px`;
+                        note.style.top = `${buttonRect.bottom}px`;
+                        
+                        document.body.appendChild(note);
+                        
+                        // Animación de la nota
+                        note.style.animation = `float-note 1.5s ease-out forwards`;
+                        
+                        // Eliminar la nota después de la animación
+                        setTimeout(() => {
+                            if (note.parentNode) {
+                                note.parentNode.removeChild(note);
+                            }
+                        }, 1500);
+                    }, i * 100);
+                }
+            }
+            
+            // Evento para el botón de música
+            musicButton.addEventListener('click', function(e) {
+                // Reproducir sonido
+                musicSound.currentTime = 0;
+                musicSound.play().catch(error => {
+                    console.log('La reproducción automática de audio fue prevenida:', error);
+                });
+                
+                // Crear notas musicales
+                createMusicNotes();
+                
+                // Efecto de pulsación
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+            
+            // Efecto de notas al pasar el mouse
+            musicButton.addEventListener('mouseenter', function() {
+                createMusicNotes();
+            });
+            
+            // Iniciar efecto máquina de escribir
+            typeWriter();
+        });
     </script>
 </body>
 </html>
