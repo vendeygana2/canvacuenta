@@ -3,291 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elige tu aplicación favorita</title>
+    <title>Botón con Imagen</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-image: url('https://img.freepik.com/foto-gratis/mujer-negocios-trabajo_23-2148499455.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            padding: 20px;
-            background-color: #121212;
+            background: #ed7318;
+            overflow: hidden;
+        }
+        
+        .button-container {
             position: relative;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-            background: rgba(0, 0, 0, 0.5);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: all 0.3s ease;
         }
-
-        .close-btn:hover {
-            background: rgba(0, 0, 0, 0.8);
-            transform: scale(1.1);
-        }
-
-        h1 {
-            color: white;
-            text-align: center;
-            margin: 0 0 30px 0;
-            font-size: clamp(20px, 5vw, 28px);
-            width: 100%;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-            font-weight: 600;
-            padding: 0 20px;
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .btn {
-            background-color: rgba(255, 255, 255, 0.95);
+        
+        .redirect-button {
             border: none;
-            border-radius: 12px;
-            padding: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            aspect-ratio: 1/1;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            padding: 0;
+            position: relative;
+            z-index: 10;
         }
-
-        .btn:hover {
+        
+        .redirect-button:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
         }
-
-        .btn img {
-            width: 80%;
+        
+        .button-image {
+            width: 350px;
             height: auto;
-            object-fit: contain;
+            display: block;
+            border-radius: 12px;
         }
-
-        /* Specific adjustment for Duolingo button */
-        .btn:nth-child(3) img {
-            width: 90%;
-            border-radius: 50%;
-        }
-
-        /* Specific adjustment for ChatGPT button */
-        .btn:nth-child(4) img {
-            width: 85%;
-        }
-
-        @media (min-width: 600px) {
-            .container {
-                grid-template-columns: repeat(4, 1fr);
-                max-width: 800px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .container {
-                gap: 15px;
-            }
-        }
-
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
+        
+        .logos-container {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
+            display: flex;
             justify-content: center;
             align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
         }
-
-        .modal-content {
-            position: relative;
-            width: 90%;
-            max-width: 800px;
-            height: 90vh;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
+        
+        .button-container:hover .logos-container {
+            opacity: 1;
         }
-
-        .modal-close {
+        
+        .logo {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            background: rgba(0, 0, 0, 0.5);
-            width: 40px;
-            height: 40px;
+            width: 60px;
+            height: 60px;
+            background: white;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            cursor: pointer;
-            z-index: 1001;
-            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s ease;
+            text-align: center;
+            padding: 5px;
         }
-
-        .modal-close:hover {
-            background: rgba(0, 0, 0, 0.8);
-            transform: scale(1.1);
+        
+        .logo-1 {
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            background: #00C4CC;
+            color: white;
         }
-
-        .modal-iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        
+        .logo-2 {
+            top: 50%;
+            right: -30px;
+            transform: translateY(-50%) scale(0);
+            background: #00C4A7;
+            color: white;
+        }
+        
+        .logo-3 {
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            background: #FF6B6B;
+            color: white;
+        }
+        
+        .logo-4 {
+            top: 50%;
+            left: -30px;
+            transform: translateY(-50%) scale(0);
+            background: #4ECDC4;
+            color: white;
+        }
+        
+        .button-container:hover .logo-1 {
+            transform: translateX(-50%) scale(1);
+            top: -80px;
+        }
+        
+        .button-container:hover .logo-2 {
+            transform: translateY(-50%) scale(1);
+            right: -80px;
+        }
+        
+        .button-container:hover .logo-3 {
+            transform: translateX(-50%) scale(1);
+            bottom: -80px;
+        }
+        
+        .button-container:hover .logo-4 {
+            transform: translateY(-50%) scale(1);
+            left: -80px;
         }
     </style>
 </head>
 <body>
-    <a href="https://www.vendeygana.net/user/" class="close-btn">×</a>
-    
-    <h1>Elige la aplicación que más te guste</h1>
-    
-    <div class="container">
-        <!-- Capcut -->
-        <button class="btn" id="capcutBtn">
-            <img src="https://intef.es/wp-content/uploads/2023/08/Ilustraci%C3%B3n-1-Logo-de-la-aplicaci%C3%B3n-Capcut_WP.png" alt="Capcut">
+    <div class="button-container">
+        <button class="redirect-button" onclick="redirectToLink()">
+            <img src="https://i.pinimg.com/736x/23/3b/bc/233bbcbc4b8048c5bdb10f7d16bc99bc.jpg" 
+                 alt="Aplicaciones de Diseño" 
+                 class="button-image">
         </button>
         
-        <!-- Canva -->
-        <button class="btn" id="canvaBtn">
-            <img src="https://www.renatoyacolca.com/wp-content/uploads/2022/06/canva-pro.png" alt="Canva Pro">
-        </button>
-        
-        <!-- Duolingo -->
-        <button class="btn" onclick="window.location.href='https://vendeygana.forms.app/spot'">
-            <img src="https://1000marcas.net/wp-content/uploads/2021/02/Duolingo-Logo-tumb-1280x720.png" alt="Duolingo">
-        </button>
-        
-        <!-- ChatGPT -->
-        <button class="btn" id="chatgptBtn">
-            <img src="https://images.seeklogo.com/logo-png/51/2/openai-chatgpt-4-0-logo-png_seeklogo-510261.png" alt="ChatGPT">
-        </button>
-    </div>
-
-    <!-- Modal for Capcut -->
-    <div id="capcutModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" id="closeCapcutModal">×</span>
-            <iframe src="https://96vxnn73.forms.app/cuentacatcup" class="modal-iframe" frameborder="0"></iframe>
-        </div>
-    </div>
-
-    <!-- Modal for Canva -->
-    <div id="canvaModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" id="closeCanvaModal">×</span>
-            <iframe src="https://96vxnn73.forms.app/canvapro" class="modal-iframe" frameborder="0"></iframe>
-        </div>
-    </div>
-
-    <!-- Modal for ChatGPT -->
-    <div id="chatgptModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" id="closeChatgptModal">×</span>
-            <iframe src="https://96vxnn73.forms.app/chatgpt" class="modal-iframe" frameborder="0"></iframe>
+        <div class="logos-container">
+            <div class="logo logo-1">CapCut</div>
+            <div class="logo logo-2">Canva</div>
+            <div class="logo logo-3">ChatGPT</div>
+            <div class="logo logo-4">Gemini Pro</div>
         </div>
     </div>
 
     <script>
-        // Get the modals and buttons
-        const capcutModal = document.getElementById("capcutModal");
-        const capcutBtn = document.getElementById("capcutBtn");
-        const closeCapcutModal = document.getElementById("closeCapcutModal");
-
-        const canvaModal = document.getElementById("canvaModal");
-        const canvaBtn = document.getElementById("canvaBtn");
-        const closeCanvaModal = document.getElementById("closeCanvaModal");
-
-        const chatgptModal = document.getElementById("chatgptModal");
-        const chatgptBtn = document.getElementById("chatgptBtn");
-        const closeChatgptModal = document.getElementById("closeChatgptModal");
-
-        // When the user clicks the Capcut button, open the modal 
-        capcutBtn.onclick = function() {
-            capcutModal.style.display = "flex";
-            document.body.style.overflow = "hidden";
-        }
-
-        // When the user clicks the Canva button, open the modal 
-        canvaBtn.onclick = function() {
-            canvaModal.style.display = "flex";
-            document.body.style.overflow = "hidden";
-        }
-
-        // When the user clicks the ChatGPT button, open the modal 
-        chatgptBtn.onclick = function() {
-            chatgptModal.style.display = "flex";
-            document.body.style.overflow = "hidden";
-        }
-
-        // When the user clicks on (x), close the modals
-        closeCapcutModal.onclick = function() {
-            capcutModal.style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-
-        closeCanvaModal.onclick = function() {
-            canvaModal.style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-
-        closeChatgptModal.onclick = function() {
-            chatgptModal.style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == capcutModal) {
-                capcutModal.style.display = "none";
-                document.body.style.overflow = "auto";
-            }
-            if (event.target == canvaModal) {
-                canvaModal.style.display = "none";
-                document.body.style.overflow = "auto";
-            }
-            if (event.target == chatgptModal) {
-                chatgptModal.style.display = "none";
-                document.body.style.overflow = "auto";
-            }
+        function redirectToLink() {
+            window.location.href = "https://cuentasvendeygana.company.site/products/aplicaciones-diseno";
         }
     </script>
 </body>
